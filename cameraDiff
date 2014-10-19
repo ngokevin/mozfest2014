@@ -1,0 +1,62 @@
+commit e0cffe6ca65fc6487242e2a42da616c70ea6591d
+Author: Kevin Ngo <ngoke@mozilla.com>
+Date:   Sun Oct 19 13:29:03 2014 -0700
+
+    add camera
+
+diff --git a/mozfestApp/www/css/style.css b/mozfestApp/www/css/style.css
+index fa22927..c28e621 100644
+--- a/mozfestApp/www/css/style.css
++++ b/mozfestApp/www/css/style.css
+@@ -1 +1,10 @@
+ /* Empty. Add your own CSS if you like */
++#img {
++    background: #ddd;
++    border-radius: 10px;
++    display: block;
++    height: auto;
++    margin: 0 auto 15px auto;
++    min-height: 320px;
++    width: 90%;
++}
+diff --git a/mozfestApp/www/js/controllers.js b/mozfestApp/www/js/controllers.js
+index 07ae5cf..022df0a 100644
+--- a/mozfestApp/www/js/controllers.js
++++ b/mozfestApp/www/js/controllers.js
+@@ -1,6 +1,22 @@
+ angular.module('starter.controllers', [])
+
+ .controller('DashCtrl', function($scope) {
++    // Exposes click handler to the template via the $scope object.
++    $scope.takePicture = function() {
++        if (!navigator.camera) {
++            console.log('App is not yet built nor running on actual device');
++            return;
++        }
++
++        // Calls the camera API. Cordova will abstract this to work with all
++        // devices natively.
++        navigator.camera.getPicture(function(imageURI) {
++            // Exposes the image src to the template via the $scope object.
++            window.document.getElementById('img').setAttribute('src', imageURI);
++        }, function(err) {
++            console.log("Error calling the navigator.camera API");
++        }, {quality: 100});
++    };
+ })
+
+ .controller('FriendsCtrl', function($scope, Friends) {
+diff --git a/mozfestApp/www/templates/tab-dash.html b/mozfestApp/www/templates/tab-dash.html
+index 731196e..5a50d69 100644
+--- a/mozfestApp/www/templates/tab-dash.html
++++ b/mozfestApp/www/templates/tab-dash.html
+@@ -1,5 +1,7 @@
+-<ion-view title="Dashboard">
++<ion-view title="Camera">
+   <ion-content class="padding">
+-    <h1>Dash</h1>
++    <img id="img"></img>
++    <button class="button button-block button-calm"
++            ng-click="takePicture()">Take Picture</button>
+   </ion-content>
+ </ion-view>
