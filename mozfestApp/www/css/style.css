@@ -1,1 +1,10 @@
 /* Empty. Add your own CSS if you like */
+#img {
+    background: #ddd;
+    border-radius: 10px;
+    display: block;
+    height: auto;
+    margin: 0 auto 15px auto;
+    min-height: 320px;
+    width: 90%;
+}
