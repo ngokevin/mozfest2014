@@ -1,8 +1,11 @@
 Pushing Hybrid Mobile Apps to the Forefront
 ===========================================
 
-The hacking portion of the session. Join #hybridapps on irc.mozilla.org to help
-or get help.
+The hacking portion of the session.
+
+Join #hybridapps on irc.mozilla.org for the back-channel.
+
+**Check out the pre-built app in the [mozfest2014](https://github.com/ngokevin/mozfest2014/tree/master/mozfestApp) directory.**
 
 ## Create an Idea
 
@@ -32,7 +35,8 @@ Create a bootstrap template. Choose from one of the below:
 
 Start hacking. If you aren't in the coding mood, you can skip down to the
 *Emulate and Test* section; I have a prebuilt app demonstrating device APIs
-that you can try testing on different devices.
+that you can try testing on different devices on laptops that are already set
+up.
 
 Some useful resources that might help you along the way:
 
@@ -43,28 +47,17 @@ Some useful resources that might help you along the way:
 
 ## Emulate and Test
 
-To build the app for different environments:
-
-- ```ionic platform add ios``` or ```ionic platform add android``` or ```ionic platform add firefoxos```
-- ```ionic build ios``` or ```ionic build android``` or ```ionic build firefoxos```
-- ```ionic emulate ios``` or ```ionic emulate android```
-
 Each respective platform has its own emulator for testing:
 
 - Android: adbtools
-- FirefoxOS: WebIDE
+- FirefoxOS: WebIDE (available in Firefox 33)
 - OSX: XCode
 
-I will have several laptops with XCode and adbtools set up so you don't have to
-install gigabytes of software yourself. There will probably be some attendees
-with laptops conveniently set up as well.
+If you are developing on your own machine, I highly recommend developing with
+WebIDE and testing with Firefox. It would take too long to set up iOS and
+Android environments within the time of this session.
 
-## Share
-
-Try zipping and swapping apps with another platform's team. Run it on your
-respective emulator or device, see how well it runs despite being developed for
-another platform.
-
-- Take an app from another platform's team
-- Run it on your respective emulator or device
-- See how well it runs despite being developed on a different target
+Once you have something, I have several laptops with XCode and adbtools set up
+for you to test on real devices (i.e., Nexus 7, Firefox Flame, iPhone 6). The
+```mozfest2014``` directory has another README that has instructions on
+installing your app on the different devices using the provided laptops.
